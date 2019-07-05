@@ -1,0 +1,1 @@
+A backend on Node.js which provides API endpoints to various functions and a frontend based on React.js which consumes these endpoints.
