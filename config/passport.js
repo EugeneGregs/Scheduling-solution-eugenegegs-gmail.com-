@@ -8,25 +8,19 @@ const passErrorMessage = {
   }
 };
 const nouserErrorMessage = {
-    error: {
-      password: "User not found"
-    }
-  };
+  error: {
+    password: "User not found"
+  }
+};
 
 module.exports = function(passport) {
   passport.use(
     new LocalStrategy(
-        // (username, password, done) => {
-        //     console.log("Verification function called");
-        //     return done(null, { username, id: "1" });
-        //   }
-
-    //   { userNameField: "personnel_phone" },
+      //Find user from database
       (username, password, done) => {
         Personnel.findOne({ where: { personnel_phone: username } })
           .then(personnel => {
-            if (!personnel)
-              return done(null, false, nouserErrorMessage);
+            if (!personnel) return done(null, false, nouserErrorMessage);
 
             //match password
             bcrypt.compare(
