@@ -1,11 +1,12 @@
+const config = require("config");
 const express = require("express");
 const app = express();
 const login = require("./routes/login");
 const tasks = require("./routes/tasks");
 const PORT = process.env.PORT || 3000;
 const session = require("express-session");
-const passport = require('passport');
-const flash = require('express-flash');
+const passport = require("passport");
+const flash = require("express-flash");
 
 //passport config
 require('./config/passport')(passport);

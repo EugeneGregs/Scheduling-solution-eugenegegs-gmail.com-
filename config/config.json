@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "testdb_sequelize",
+    "database": "mawingun_mpesa",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

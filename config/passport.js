@@ -1,6 +1,5 @@
 const LocalStrategy = require("passport-local").Strategy;
 const Personnel = require("../src/models/Personnel");
-const passport = require("passport");
 const bcrypt = require("bcrypt");
 const passErrorMessage = {
   error: {

@@ -1,7 +1,6 @@
+const config = require("config");
 const express = require("express");
 const router = express.Router();
-const Personnel = require("../src/models/Personnel");
-const bcrypt = require("bcrypt");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 
@@ -10,10 +9,6 @@ router.post(
   "/login",
   (req, res, next) => {
     passport.authenticate("local", (error, user, info) => {
-      console.log(error);
-      console.log(user);
-      console.log(info);
-
       if (error) {
         res.status(401).send(error);
       } else if (!user) {
@@ -22,7 +17,7 @@ router.post(
         const { personnel_phone, personnel_id, reset_password } = user;
         const token = jwt.sign(
           { _phone: personnel_phone, _id: personnel_id },
-          "secretKey1234#"
+          "jwtPrivateKey"
         );
         res
           .status(200)

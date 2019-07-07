@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const sequelize = require('../database/connection');
 
 module.exports = sequelize.define("Task", {
     task_id: {
@@ -38,7 +39,7 @@ module.exports = sequelize.define("Task", {
     },
     in_progress: Sequelize.DATE,
     completed: Sequelize.DATE,
-    defered: Sequelize.DATE,
+    deferred: Sequelize.DATE,
     customer_first_name: Sequelize.STRING(100),
     customer_last_name: Sequelize.STRING(100),
     customer_city: Sequelize.STRING(100),
@@ -60,6 +61,7 @@ module.exports = sequelize.define("Task", {
     customer_updated_by: Sequelize.INTEGER(11),
     agentId: Sequelize.INTEGER(11),
     customerId: Sequelize.BIGINT(20)
-
-
+}, {
+    timestamps: false,
+    tableName: 'task'
 })
