@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const sequelize = require('../database/connection');
 
 module.exports = sequelize.define("Personnel", {
     personnel_id: {
@@ -33,5 +34,7 @@ module.exports = sequelize.define("Personnel", {
         allowNull: false,
         defaultValue: 1
     }
-}
-)
+}, {
+    timestamps: false,
+    tableName: 'personnel'
+})
